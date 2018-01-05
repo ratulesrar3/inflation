@@ -1,80 +1,42 @@
+/* Main div */
 
-.container {
-  width: 890px;
+body {
+  font: 12px Avenir, sans-serif;
+  background-color: #f2f2f2;
 }
 
-#graphic {
-  padding-top: 60px;
+h1 { 
+  font-size: 2.4em; 
+  text-align: left;
+  font-family: Avenir, sans-serif;
+  font-weight: normal;
+  text-indent: 20px;
 }
 
-
-#sections {
-  position: relative;
-  display: inline-block;
-  width: 250px;
-  top: 0px;
-  z-index: 90;
-  padding-bottom: 200px;
-}
-
-.step {
-  margin-bottom: 200px;
-  font-family: "TiemposTextWeb-Regular","Georgia";
-  font-size: 16px;
-  line-height: 23px;
-  color: #767678;
-}
-
-#sections .title {
-  font-family: Arial,Helvetica,"san-serif";
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 2px;
-  color: #262626;
-  line-height: 1.2em;
-}
-
-#extra-space {
-  height: 300px;
-}
-
-#vis {
-  display: inline-block;
-  position: fixed;
-  top: 60px;
-  z-index: 1;
-  margin-left: 0;
-  /* height: 600px; */
-  /* width: 600px; */
-  /* background-color: #ddd; */
-}
-
-#vis .title {
-  font-size:72px;
-  text-anchor: middle;
-}
-
-#vis .sub-title {
-  font-size:60px;
-  text-anchor: middle;
+p {
+  font-family: Roboto, sans-serif;
+  font-size: 13px;
+  text-indent: 22px;
+  text-align: left;
 }
 
 .axis path,
 .axis line {
   fill: none;
-  stroke: #666;
+  stroke: #000;
   shape-rendering: crispEdges;
 }
 
-.highlight {
-  fill: #008080;
-  font-weight: bold;
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 60px;
+  height: 28px;
+  padding: 2px;
+  font: 12px Avenir, sans-serif;
+  background-color: #fafafa;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
 }
-
-.cough-arrow {
-  stroke: #000;
-  stroke-width: 4px;
-
-}
-
 

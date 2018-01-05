@@ -6,57 +6,29 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
   <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
+ 
   <!-- Favicons
   ================================================== -->
   <!--meta property="og:image" content="https://d3qi0qp55mx5f5.cloudfront.net/www/i/misc/maroon-shield.png" /-->
   <link rel="shortcut icon" href="https://arts.uchicago.edu/sites/all/themes/arts/favicon.ico" type="image/vnd.microsoft.icon" />
 </head>
 <body>
-<div class="container">
-  <div id='graphic'>
-    <div id='sections'>
-      <section class="step">
-        <div class="title">Price Inflation</div>
-        The Consumer Price Index (CPI) is often referred to as the source of truth for purchasing power in the United States. But what if there are better measures to reflect the how price changes affect purschaing power?
-      </section>
-      <section class="step">
-        <div class="title">Bureau of Labor Statistic (BLS) &amp; CPI</div>
-        CPI expresses the current prices of a basket of goods and services relative to the prices of those same goods and services in a previous year to show the effect of inflation on purchasing power. The BLS reports CPI for different goods each fiscal quarter and aggregates them into one index. However, daily calculations may be more accurate.
-      </section>
-      <section class="step">
-        <div class="title">MTI's Billion Prices Project (BPP)</div>
-        PriceStats, a BPP partner, measures inflation in 22 economies daily using online prices, with the goal of more easily anticipating large shifts in inflation trends. This is arguably a much better indicator of the change in prices of goods than aggregate CPI. Find out more about the Billion Prices Project <a href="http://www.thebillionpricesproject.com"/>here!</a>
-      </section>
-      <section class="step">
-        <div class="title">What's the difference?</div>
-        The online PriceStats index is higher except for a short time following 2009, suggesting the CPI might be underestimating inflation and price changes for goods.
-      </section>
-      <section class="step">
-        <div class="title">CPI by specific goods and services</div>
-        Consumers certainly have to buy food. Food prices seem to tend higher than both aggregate CPI and the PriceStats index.
-      </section>
-      <section class="step">
-        <div class="title">What about housing?</div>
-        Housing prices have also steadily recovered in the aftermath of the Great Recession.
-      </section>
-      <section class="step">
-        <div class="title">What's going on with energy?</div>
-        Energy has seen the most price fluctuation of anything we've looked at, by far. Many of the dips in aggregate CPI have been following dips in energy, so this may be disproportionately influencing aggregate CPI.
-      </section>
-      <section class="step">
-        <div class="title">Look out for more</div>
-        This project is a work in progress using D3.js. Future iterations hope to incorporate information on income and wealth. See more graphs on inflation and income <a href="https://ratulesrar3.github.io/data_viz_pbpl/">here</a>.
-      </section>
-    </div>
-    <div id='vis'>
-    </div>
-    <div id="extra-space">
-    </div>
+  <script src="d3/d3.js"></script>
+  <script src="d3/d3-legend.min.js"></script>
+  <div id="scatter-vis">
+    <h1>Price Inflation</h1>
+    <p>The Consumer Price Index (CPI) is often referred to as the source of truth for purchasing power in the United States.</p>
+    <p>CPI expresses the year over year change in price of a basket of goods, and is reported each fiscal quarter by the Bureau of Labor Statisitics (BLS).</p>
+    <p>In the chart below, what looks like a trendline for quarterly CPI values is actually a daily index calculation based online prices by MIT's Billion Prices Project (BPP).</p>
+    <p>See for yourself by using the brush to zoom in!</p>
+    <script src="js/scatterbrush.js"></script>
   </div>
-</div>
-
-<script src="d3/d3.js"></script>
-<script src="js/scroller.js"></script>
-<script src="js/sections.js"></script>
+    <p>We see a larger difference between daily and quarterly calculations, especially between 2014-2015.</p>
+    <p>This may be related to the emergence of Amazon capturing a greater share of online retail, which may have increased prices online.</p>
+  <div id="linechart">
+    <h1>Volatility in CPI</h1> 
+    <p>The CPI is an aggregate of prices indexes for specific goods and services, which have their own volatility.</p>
+    <p>Take a look at three sectors that comprise the CPI: food, housing, and energy.</p>
+  </div>
 </body>
 </html>

@@ -124,8 +124,8 @@ var scrollSections = function () {
       .append('circle')
       .attr('class', 'dot');
     dots = dots.merge(dotsE)
-      .attr('r', 2.5)
-      .style('opacity', 0)
+      .attr('r', 5)
+      .style('display', 'inline')
       .attr('cx', function(d) { return xScatterScale(d.date); })
       .attr('cy', function(d) { return yScatterScale(d.index_val); });
 
@@ -133,10 +133,10 @@ var scrollSections = function () {
     var dailyDots = g.selectAll('.dot').data(dailyInflation);
     var dailyDotsE = dailyDots.enter()
       .append('circle')
-      .attr('class', 'dot');
+      .attr('class', 'dailyDot');
     dailyDots = dailyDots.merge(dailyDotsE)
       .attr('r', 1)
-      .style('opacity', 0)
+      .style('display', 'none')
       .attr('cx', function(d) { return xScatterScale(d.date); })
       .attr('cy', function(d) { return yScatterScale(d.index_val); });
 
@@ -192,21 +192,16 @@ var scrollSections = function () {
   // hide grid
   // shows cpi scatter
   function showScatter() {
-    g.selectAll('.count-title')
-      .transition()
-      .duration(0)
-      .attr('opacity', 0);
-
-    g.selectAll('.square')
-      .transition()
-      .duration(0)
-      .attr('opacity', 0);
-
     g.selectAll('.dot')
       .transition()
       .duration(600)
-      .attr('opacity', 1.0)
+      .style('display', 'inline')
       .attr('fill', '#000000');
+
+    g.selectAll('.dailyDot')
+      .trasition()
+      .duration(0)
+      .style('display', 'none')
 
     showAxis(xAxisScatter);
     showAxisY(yAxisScatter);
@@ -214,35 +209,30 @@ var scrollSections = function () {
     g.selectAll('.dot')
       .attr('height', function () { return 0; })
       .attr('y', function () { return height; })
-      .style('opacity', 1.0);
+      .style('display', 'inline');
 
   }
 
   // show daily scatter
   function showDailyScatter() {
-    g.selectAll('.dot')
+    g.selectAll('.dailyDot')
       .transition()
       .duration(0)
-      .attr('opacity', 0);
+      .style('display', 'inline');
 
     g.selectAll('.dot')
       .transition()
       .duration(600)
-      .attr('opacity', 0)
+      .style('display', 'none')
       .attr('fill', '#008080');
-
-    g.selectAll('.square')
-      .transition()
-      .duration(0)
-      .attr('opacity', 0);
 
     showAxis(xAxisScatter);
     showAxisY(yAxisScatter);
 
-    g.selectAll('.dot')
+    g.selectAll('.dailyDot')
       .attr('height', function () { return 0; })
       .attr('y', function () { return height; })
-      .style('opacity', 0);
+      .style('display', 'inline');
   }
 
   /**
