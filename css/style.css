@@ -1,12 +1,19 @@
-/* Main div */
+
 
 body {
   font: 12px Avenir, sans-serif;
   background-color: #f2f2f2;
 }
 
-h1 { 
+body h1 { 
   font-size: 2.4em; 
+  text-align: center;
+  font-family: Avenir, sans-serif;
+  font-weight: normal;
+}
+
+body h2 { 
+  font-size: 1.6em; 
   text-align: left;
   font-family: Avenir, sans-serif;
   font-weight: normal;
@@ -17,13 +24,23 @@ p {
   font-family: Roboto, sans-serif;
   font-size: 13px;
   text-indent: 22px;
-  text-align: left;
+  text-align: center;
+}
+
+.legend {
+  font-weight: bold;
+}
+
+path { 
+  fill: none;
+  stroke-width: 2;
 }
 
 .axis path,
 .axis line {
   fill: none;
-  stroke: #000;
+  stroke: grey;
+  stroke-width: 1;
   shape-rendering: crispEdges;
 }
 
@@ -39,4 +56,11 @@ div.tooltip {
   border-radius: 8px;
   pointer-events: none;
 }
+
+.brush .extent {
+  stroke: #fff;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}
+
 

@@ -16,19 +16,35 @@
   <script src="d3/d3.js"></script>
   <script src="d3/d3-legend.min.js"></script>
   <div id="scatter-vis">
-    <h1>Price Inflation</h1>
-    <p>The Consumer Price Index (CPI) is often referred to as the source of truth for purchasing power in the United States.</p>
-    <p>CPI expresses the year over year change in price of a basket of goods, and is reported each fiscal quarter by the Bureau of Labor Statisitics (BLS).</p>
-    <p>In the chart below, what looks like a trendline for quarterly CPI values is actually a daily index calculation based online prices by MIT's Billion Prices Project (BPP).</p>
-    <p>See for yourself by using the brush to zoom in!</p>
-    <script src="js/scatterbrush.js"></script>
+    <h1>Price Inflation &amp; Volatility in CPI</h1>
+      <p>The Consumer Price Index (CPI) is often referred to as the source of truth for purchasing power in the United States. CPI expresses the year over year change in price of a basket of goods, and is reported each fiscal quarter by the Bureau of Labor Statisitics (BLS). 
+      <p>Additionally, the CPI is an aggregate of prices indexes for specific goods and services, which each have their own volatility.</p>
+      <p>In the chart below, what looks like a trendline for quarterly CPI values is actually a daily index calculation based online prices by MIT's Billion Prices Project (BPP). Learn more about the BPP <a href="http://www.thebillionpricesproject.com"/>here!</a></p>
+      <p><b>Use the brush to zoom in or mouse over the chart to see the index value! Start from one end to make a selection</b></p>
+      
+      <script src="js/graphs.js"></script>
+      
   </div>
-    <p>We see a larger difference between daily and quarterly calculations, especially between 2014-2015.</p>
-    <p>This may be related to the emergence of Amazon capturing a greater share of online retail, which may have increased prices online.</p>
   <div id="linechart">
-    <h1>Volatility in CPI</h1> 
-    <p>The CPI is an aggregate of prices indexes for specific goods and services, which have their own volatility.</p>
-    <p>Take a look at three sectors that comprise the CPI: food, housing, and energy.</p>
+      <p><b>Toggle the different sectors by clicking on the legend</b></p>
+      <p>In the chart above, take a look at three sectors that comprise the CPI: food, housing, and energy.</p>
+      <p>Clearly, there has been lots of volatility in energy prices, so one way to mitigate the effect of volatile markets is by calculating the index each quarter. This has some benefits, but daily index calculations make it easier to predict future price changes.</p>
+      <p>Ultimately, there are trade-offs to each approach for calculating inflation. See more graphs on inflation and income <a href="https://ratulesrar3.github.io/data_viz_pbpl/">here</a>.</p>
   </div>
+
+  <h2>Data Sources:</h2>
+  <ul>
+    <li><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi%3A10.7910%2FDVN%2F6RQCRS">The Billion Prices Project: Using Online Data for Measurement and Research</a></li>
+    <li><a href="https://www.bls.gov/cpi/data.htm">U.S. Bureau of Labor Statistics CPI Databases</a></li>
+  </ul>
+  <h2>Code Sources:</h2>
+  <ul>
+    <li><a href="http://bl.ocks.org/rajvansia/ce6903fad978d20773c41ee34bf6735c">Mike Bostock &amp; Raj Vanisa, Scatter Plot with Brush</a></li>
+    <li><a href="https://github.com/mdvandergon/monetary-policy/blob/master/graph.js">Mark Vandergon, d3-legend for chart</a></li>
+    <li><a href="https://bl.ocks.org/d3noob/257c360b3650b9f0a52dd8257d7a2d73">d3noob, Scatter Tooltip</a></li>
+    <li><a href="https://bl.ocks.org/d3noob/08af723fe615c08f9536f656b55755b4">d3noob, Multi-line Chart with Toggle</a></li>
+    <li><a href="https://bl.ocks.org/larsenmtl/e3b8b7c2ca4787f77d78f58d41c3da91">larsenmtl, Multi-line Chart with Tooltip</a></li>
+  </ul>
+
 </body>
 </html>
