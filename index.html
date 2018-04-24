@@ -1,50 +1,130 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Exploring Inflation</title>
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-  <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  <script type="text/javascript" src="./d3/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.13.0/d3-legend.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
 
- 
+
   <!-- Favicons
-  ================================================== -->
-  <!--meta property="og:image" content="https://d3qi0qp55mx5f5.cloudfront.net/www/i/misc/maroon-shield.png" /-->
-  <link rel="shortcut icon" href="https://arts.uchicago.edu/sites/all/themes/arts/favicon.ico" type="image/vnd.microsoft.icon" />
+	================================================== -->
+	<!--meta property="og:image" content="https://d3qi0qp55mx5f5.cloudfront.net/www/i/misc/maroon-shield.png" /-->
+	<link rel="shortcut icon" href="https://arts.uchicago.edu/sites/all/themes/arts/favicon.ico" type="image/vnd.microsoft.icon" />
+  
 </head>
 <body>
-  <script src="d3/d3.js"></script>
-  <script src="d3/d3-legend.min.js"></script>
-  <div id="scatter-vis">
-    <h1>Price Inflation &amp; Volatility in CPI</h1>
-      <p>The Consumer Price Index (CPI) is often referred to as the source of truth for purchasing power in the United States. CPI expresses the year over year change in price of a basket of goods, and is reported each fiscal quarter by the Bureau of Labor Statisitics (BLS). 
-      <p>Additionally, the CPI is an aggregate of prices indexes for specific goods and services, which each have their own volatility.</p>
-      <p>In the chart below, what looks like a trendline for quarterly CPI values is actually a daily index calculation based online prices by MIT's Billion Prices Project (BPP). Learn more about the BPP <a href="http://www.thebillionpricesproject.com"/>here!</a></p>
-      <p><b>Use the brush to zoom in or mouse over the chart to see the index value! Start from one end to make a selection</b></p>
-      
-      <script src="js/graphs.js"></script>
-      
-  </div>
-  <div id="linechart">
-      <p><b>Toggle the different sectors by clicking on the legend</b></p>
-      <p>In the chart above, take a look at three sectors that comprise the CPI: food, housing, and energy.</p>
-      <p>Clearly, there has been lots of volatility in energy prices, so one way to mitigate the effect of volatile markets is by calculating the index each quarter. This has some benefits, but daily index calculations make it easier to predict future price changes.</p>
-      <p>Ultimately, there are trade-offs to each approach for calculating inflation. See more graphs on inflation and income <a href="https://ratulesrar3.github.io/data_viz_pbpl/">here</a>.</p>
+
+  <div class="container" id="container-1">
+    <div class="graph rounded-bottom" id="graph">
+    </div>
+    <section class="row">
+      <div>
+        <h2>Price Inflation</h2>
+        <p>
+          The Consumer Price Index (CPI) is often referred to as the source of truth for purchasing power in the United States.          
+        </p>
+        <p>
+          But what if there are better measures to reflect the how price changes affect purschaing power?
+        </p>
+        <p class="text-muted">Scroll to find out</p>
+      </div>
+
+      <div>
+        <h2>Bureau of Labor Statistic (BLS) & CPI</h2>
+        <p>
+          CPI expresses the current prices of a basket of goods and services relative to the prices of those same goods and services in a previous year to show the effect of inflation on purchasing power. The BLS reports CPI for different goods each fiscal quarter and aggregates them into one index. 
+        </p>
+        <p>
+          However, daily calculations may be more accurate.
+        </p>
+      </div>
+
+      <div>
+        <h2>MTI's Billion Prices Project (BPP)</h2>
+        <p>
+          PriceStats, a BPP partner, measures inflation in 22 economies daily using online prices, with the goal of more easily anticipating large shifts in inflation trends. This is arguably a much better indicator of the change in prices of goods than aggregate CPI. 
+        </p>
+        <p>
+          Find out more about the Billion Prices Project <a href="http://www.thebillionpricesproject.com"/>here!</a>
+        </p>
+
+      </div>
+
+      <div>
+        <h2>What's the difference?</h2>
+        <p>
+          The online PriceStats index is higher except for a short time following 2009, suggesting the CPI might be underestimating inflation and price changes for goods.
+        </p>
+      </div>
+
+      <div>
+        <h2>CPI by specific goods and services</h2>
+        <p>
+          Consumers certainly have to buy food. Food prices seem to tend higher than both aggregate CPI and the PriceStats index.
+        </p>
+
+      </div>
+
+      <div>
+        <h2>What about housing?</h2>
+        <p>
+          Housing prices have also steadily recovered in the aftermath of the Great Recession.
+        </p>
+      </div>
+
+      <div>
+        <h2>What's going on with energy?</h2>
+        <p>
+          Energy has seen the most price fluctuation of anything we've looked at, by far. Many of the dips in aggregate CPI have been following dips in energy, so this may be disproportionately influencing aggregate CPI. 
+        </p>
+      </div>
+
+      <div>
+      	<h2>Look out for more</h2>
+      	<p>
+          This project is a work in progress using D3.js. Future iterations hope to incorporate information on income and wealth.
+        </p>
+        <p>
+          See more graphs on inflation and income <a href="https://ratulesrar3.github.io/data_viz_pbpl/">here</a>.
+        </p>
+      </div>
+
+  </section>
+
   </div>
 
-  <h2>Data Sources:</h2>
-  <ul>
-    <li><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi%3A10.7910%2FDVN%2F6RQCRS">The Billion Prices Project: Using Online Data for Measurement and Research</a></li>
-    <li><a href="https://www.bls.gov/cpi/data.htm">U.S. Bureau of Labor Statistics CPI Databases</a></li>
-  </ul>
-  <h2>Code Sources:</h2>
-  <ul>
-    <li><a href="http://bl.ocks.org/rajvansia/ce6903fad978d20773c41ee34bf6735c">Mike Bostock &amp; Raj Vanisa, Scatter Plot with Brush</a></li>
-    <li><a href="https://github.com/mdvandergon/monetary-policy/blob/master/graph.js">Mark Vandergon, d3-legend for chart</a></li>
-    <li><a href="https://bl.ocks.org/d3noob/257c360b3650b9f0a52dd8257d7a2d73">d3noob, Scatter Tooltip</a></li>
-    <li><a href="https://bl.ocks.org/d3noob/08af723fe615c08f9536f656b55755b4">d3noob, Multi-line Chart with Toggle</a></li>
-    <li><a href="https://bl.ocks.org/larsenmtl/e3b8b7c2ca4787f77d78f58d41c3da91">larsenmtl, Multi-line Chart with Tooltip</a></li>
-  </ul>
+    <div class="container jumbotron text-center">
+    <div class="row">
+      <div class="offset-sm-3 col-sm-6">
+        <h2>Thanks for scrolling!</h2>
+        <h4>Sources:</h4>
+        <ul>
+          <li><a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi%3A10.7910%2FDVN%2F6RQCRS">The Billion Prices Project: Using Online Data for Measurement and Research</a></li>
+          <li><a href="https://www.bls.gov/cpi/data.htm">U.S. Bureau of Labor Statistics CPI Databases</a></li>
+        </ul>
+        <h4>Code:</h4>
+        <p>
+          This inflation project was a less cool version of <a href="https://mdvandergon.github.io/monetary-policy/">Mark Vandergon's Monetary Rules Project</a>, which is a cooler version of <a href="http://vallandingham.me/scroll_demo/">Jim Vallandingham's scroll demo</a> available <a href="https://github.com/vlandham/scroll_demo">here</a> on GitHub using D3.js version4, graphscroll, and d3-legend.
+      </div>
+    </div>
+  </div>
 
-</body>
+
+  <script type="text/javascript" src="./js/d3v4+jetpack.js"></script>
+  <script type="text/javascript" src="./js/graph-scroll.js"></script>
+  <script type="text/javascript" src="./js/d3-legend.min.js"></script>
+  <script>
+    // getting the right size from the screen to use in d3 scripts
+    function render() {
+      svgWidth = d3.select('#graph').node().offsetWidth-2,
+      svgHeight = Math.min(svgWidth*2/3, window.innerHeight * .7);
+    };
+    render()
+    d3.select(window).on('resize', render);
+  </script>
+  <script type="text/javascript" src="./inflation_graphs.js"></script>
+
 </html>

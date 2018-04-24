@@ -1,0 +1,198 @@
+/**********
+Styles
+**********/
+
+/* with help from 1wheel: https://github.com/1wheel/graph-scroll */
+
+/* PALETTE */
+:root {
+  --brand-blue: #2F74FF;
+  --brand-red: #E82C0C;
+  --brand-orange: #FF791B;
+  --svg-background: #ffffff;
+}
+
+/* WEBPAGE */
+/* font from bloomberg */
+@font-face {
+    font-family: 'AvenirNextPForBBG-Regular';
+    
+    
+    src: url('https://assets.bwbx.io/font-service/fonts/AvenirNextPForBBG-Regular-09359fef74.woff2') format('woff2'),
+         url('https://assets.bwbx.io/font-service/fonts/AvenirNextPForBBG-Regular-91967b382a.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'AvenirNextPForBBG-Demi';
+    
+    
+    src: url('https://assets.bwbx.io/font-service/fonts/AvenirNextPForBBG-Demi-62597c630e.woff2') format('woff2'),
+         url('https://assets.bwbx.io/font-service/fonts/AvenirNextPForBBG-Demi-d7e488b711.woff') format('woff');
+}
+
+body {
+  margin: 0px auto;
+  padding-top: 3.5rem;
+  font-family: 'AvenirNextPForBBG-Demi', monospace;
+  background-color: #f0f0f0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'AvenirNextPForBBG-Regular', monospace;
+  margin-bottom: 1rem;
+}
+
+section {
+  width: 28%;
+  margin-right: 10%;
+  font-size: 1.2rem;
+}
+
+section > div {
+  opacity: .1;
+  margin-bottom: 300px;
+}
+
+section > div:last-child {
+  margin-bottom: 250px;
+}
+
+section > div.graph-scroll-active {
+  opacity: 1;
+  transition: 0.8s ease;
+}
+
+.graph {
+  top: auto;
+  position: absolute;
+  width: 780px;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  margin-left: 28%;
+  margin-top: 3rem;
+}
+
+#graph-options {
+  width: 700px;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  margin-bottom: -10px;
+  margin-top: 4rem;
+  margin-left: 41%;
+  padding: 8px 2px;
+}
+
+.graph-scroll-fixed .graph {
+  position: fixed;
+  top: 0px;
+}
+
+.graph-scroll-below .graph {
+  bottom: 0px;
+  top: 0px;
+}
+
+.graph-fill-over {
+  fill: var(--brand-orange);
+}
+
+.graph-fill-under {
+  fill: var(--brand-red);
+}
+
+.graph-fill-clear {
+  fill: var(--svg-background);
+}
+
+.graph-fill-inactive {
+  opacity: 0.2;
+}
+/* graph */
+svg {
+  background-color: var(--svg-background);
+}
+
+text {
+  fill: #444444;
+  font-family: 'AvenirNextPForBBG-Demi', monospace;
+}
+
+/* axes */
+.axis path,
+.axis line {
+  fill: none;
+  stroke: black;
+  shape-rendering: crispEdges;
+}
+.axis text {
+  font-size: 12px;
+}
+
+.legend {
+  font-size: 0.9rem;
+}
+
+/* shapes */
+circle {
+  fill: steelblue;
+}
+
+.bar {
+  fill: #666666;
+  z-index: -1;
+  opacity: 0.15;
+  transition: 1s;
+}
+
+/* tooltip */
+.d3-tip {
+  line-height: 1;
+  padding: 12px;
+  background-color: #222222;
+  opacity: 0.9;
+  color: #fff;
+  border-radius: 4px;
+  transition: 0.5s;
+}
+
+.line {
+  fill: none;
+  stroke-width: 3px;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+.hover-line {
+  stroke: #000000;
+  stroke-width: 2px;
+  stroke-dasharray: 3,3;
+}
+
+/* media */
+@media (max-width: 925px) {
+  .graph {
+    margin: 10px auto;
+    z-index: 1000;
+  }
+
+  section {
+    width: 800px;
+    margin: 0px auto;
+    padding-top: 600px;
+    text-align: center;
+  }
+
+  section div {
+    padding: 10px 80px;
+    margin-bottom: 600px;
+    font-size: 1.6rem;
+  }
+
+  #graph-options {
+    margin: 10px auto;
+    padding: 16px 30px;
+  }
+}
